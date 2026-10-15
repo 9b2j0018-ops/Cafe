@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Corner | my-site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#fdfbf7',
+                            100: '#f7f2e8',
+                            200: '#eee3d0',
+                            300: '#e1cdb0',
+                            400: '#cdab7e',
+                            500: '#be8f58',
+                            600: '#af7a49',
+                            700: '#92603c',
+                            800: '#774f35',
+                            900: '#61422e',
+                            950: '#342117',
+                        },
+                        cream: '#FAF6F0',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(250, 246, 240, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-cream text-coffee-950 font-sans antialiased selection:bg-coffee-300 selection:text-coffee-950">
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 glass-nav border-b border-coffee-200/60 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-2 group">
+                    <span class="p-2 bg-coffee-800 text-cream rounded-full group-hover:bg-coffee-700 transition">
+                        <i class="fa-solid font-bold fa-mug-hot text-lg"></i>
+                    </span>
+                    <span class="font-serif text-2xl font-bold tracking-tight text-coffee-900">Café Corner</span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-coffee-800">
+                    <a href="#about" class="hover:text-coffee-600 transition">關於我們</a>
+                    <a href="#posts" class="hover:text-coffee-600 transition">咖啡日誌</a>
+                    <a href="#menu" class="hover:text-coffee-600 transition">推薦菜單</a>
+                    <a href="#subscribe" class="hover:text-coffee-600 transition">訂閱週報</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button onclick="togglePreviewModal()" class="hidden sm:inline-flex items-center gap-2 text-xs uppercase tracking-wider bg-coffee-200 text-coffee-900 font-semibold px-3 py-1.5 rounded-full hover:bg-coffee-300 transition">
+                        <i class="fa-solid fa-eye text-coffee-700"></i> 預覽狀態
+                    </button>
+                    <a href="#subscribe" class="bg-coffee-800 hover:bg-coffee-700 text-cream px-5 py-2.5 rounded-full text-sm font-medium transition shadow-sm hover:shadow">
+                        聯絡我們
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-coffee-100 border border-coffee-200 text-coffee-800 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-sparkles text-coffee-600"></i> 新頁面建立成功：my-site
+                    </div>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-coffee-950 leading-tight">
+                        品味咖啡的溫度，記錄生活中的每一刻靜謐。
+                    </h1>
+                    <p class="text-coffee-700 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        歡迎來到 Café Corner 部落格！這裡分享手沖咖啡技巧、精品豆產地故事，以及城市角落裡的特調靈感。
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-4">
+                        <a href="#posts" class="inline-flex items-center justify-center gap-2 bg-coffee-800 hover:bg-coffee-700 text-cream px-7 py-3.5 rounded-full font-medium transition shadow-md hover:shadow-lg">
+                            探索最新文章 <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#menu" class="inline-flex items-center justify-center gap-2 border border-coffee-300 hover:bg-coffee-100 text-coffee-900 px-7 py-3.5 rounded-full font-medium transition">
+                            特選飲品
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1000" alt="Cafe Interior" class="w-full h-[420px] object-cover hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <p class="text-xs font-semibold uppercase tracking-widest text-coffee-200">Featured Story</p>
+                            <h3 class="font-serif text-xl font-bold mt-1">手沖咖啡的極致美學：水溫與研磨度的微妙平衡</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Latest Blog Posts -->
+    <section id="posts" class="py-16 bg-white border-y border-coffee-200/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-950">咖啡日誌</h2>
+                    <p class="text-coffee-600 mt-2">分享產地知識、器具選購與特調食譜</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-2">
+                    <button class="px-4 py-2 rounded-full bg-coffee-800 text-cream text-sm font-medium">全部</button>
+                    <button class="px-4 py-2 rounded-full bg-coffee-50 hover:bg-coffee-100 text-coffee-800 text-sm font-medium transition">沖煮指南</button>
+                    <button class="px-4 py-2 rounded-full bg-coffee-50 hover:bg-coffee-100 text-coffee-800 text-sm font-medium transition">豆款推薦</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Post Card 1 -->
+                <article class="bg-cream rounded-xl overflow-hidden border border-coffee-200/80 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" alt="Coffee Pour Over" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-coffee-900 text-xs font-bold px-3 py-1 rounded-full">沖煮指南</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs text-coffee-600 mb-2">2026 年 10 月 12 日 • 5 分鐘閱讀</div>
+                            <h3 class="font-serif text-xl font-bold text-coffee-950 mb-3 hover:text-coffee-600 transition cursor-pointer">
+                                探索衣索比亞耶加雪菲：花香與柑橘的浪漫交響
+                            </h3>
+                            <p class="text-coffee-700 text-sm line-clamp-3 mb-4">
+                                來自淺焙藝術的代表作品，帶著高雅的水蜜桃與茉莉花香，帶你細細品味微酸中的甘甜...
+                            </p>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-coffee-800 hover:text-coffee-600 transition">
+                            閱讀更多 <i class="fa-solid fa-angle-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post Card 2 -->
+                <article class="bg-cream rounded-xl overflow-hidden border border-coffee-200/80 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800" alt="Latte Art" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-coffee-900 text-xs font-bold px-3 py-1 rounded-full">拿鐵藝術</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs text-coffee-600 mb-2">2026 年 10 月 08 日 • 4 分鐘閱讀</div>
+                            <h3 class="font-serif text-xl font-bold text-coffee-950 mb-3 hover:text-coffee-600 transition cursor-pointer">
+                                家用奶泡打發入門：打造綿密如絲綢般的拿鐵
+                            </h3>
+                            <p class="text-coffee-700 text-sm line-clamp-3 mb-4">
+                                只要掌握牛奶溫度與蒸氣注入角度，在家也能輕鬆拉出好看又美味的心形拿鐵圖樣...
+                            </p>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-coffee-800 hover:text-coffee-600 transition">
+                            閱讀更多 <i class="fa-solid fa-angle-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post Card 3 -->
+                <article class="bg-cream rounded-xl overflow-hidden border border-coffee-200/80 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=800" alt="Coffee Beans" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-coffee-900 text-xs font-bold px-3 py-1 rounded-full">豆款知識</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs text-coffee-600 mb-2">2026 年 09 月 28 日 • 6 分鐘閱讀</div>
+                            <h3 class="font-serif text-xl font-bold text-coffee-950 mb-3 hover:text-coffee-600 transition cursor-pointer">
+                                日曬 vs 洗流處理法：如何挑選最適合你味蕾的咖啡豆？
+                            </h3>
+                            <p class="text-coffee-700 text-sm line-clamp-3 mb-4">
+                                處理法是決定咖啡風味的關鍵之一！解密發酵與乾燥過程如何影響一杯咖啡的酸度與醇厚度...
+                            </p>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-coffee-800 hover:text-coffee-600 transition">
+                            閱讀更多 <i class="fa-solid fa-angle-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Highlights -->
+    <section id="menu" class="py-16 bg-cream">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-coffee-600">Popular Selection</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-950 mt-1">Café 特選推薦</h2>
+                <p class="text-coffee-700 mt-2">嚴選優質莊園豆與每日新鮮烘焙甜點</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl border border-coffee-200/60 shadow-sm flex items-center gap-4">
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=200" class="w-20 h-20 rounded-lg object-cover" alt="Espresso">
+                    <div class="flex-1">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-serif font-bold text-lg text-coffee-950">經典澳白 Coffee Flat White</h4>
+                            <span class="font-semibold text-coffee-700">NT$ 150</span>
+                        </div>
+                        <p class="text-coffee-600 text-xs mt-1">濃郁濃縮咖啡搭配細緻微奶泡，口感極致滑順。</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-coffee-200/60 shadow-sm flex items-center gap-4">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=200" class="w-20 h-20 rounded-lg object-cover" alt="Croissant">
+                    <div class="flex-1">
+                        <div class="flex justify-between items-baseline">
+                            <h4 class="font-serif font-bold text-lg text-coffee-950">法式奶油蜂巢可頌</h4>
+                            <span class="font-semibold text-coffee-700">NT$ 90</span>
+                        </div>
+                        <p class="text-coffee-600 text-xs mt-1">法國 Isigny 奶油製造，外酥內軟，層次豐富。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section id="subscribe" class="py-16 bg-coffee-900 text-cream">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <i class="fa-solid fa-envelope-open-text text-3xl text-coffee-400 mb-4"></i>
+            <h2 class="font-serif text-3xl font-bold mb-3">訂閱 Café Corner 週報</h2>
+            <p class="text-coffee-200 text-sm max-w-lg mx-auto mb-6">
+                每週五發送最新手沖指南、限定咖啡豆優惠資訊與品飲分享，讓我們陪你度過香醇週末。
+            </p>
+            <form onsubmit="alert('感謝您的訂閱！'); return false;" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input type="email" required placeholder="輸入您的 Email 地址" class="flex-1 px-4 py-3 rounded-full text-coffee-950 text-sm focus:outline-none focus:ring-2 focus:ring-coffee-400">
+                <button type="submit" class="bg-coffee-500 hover:bg-coffee-400 text-coffee-950 font-bold px-6 py-3 rounded-full text-sm transition">
+                    免費訂閱
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-coffee-950 text-coffee-400 py-8 border-t border-coffee-800 text-xs">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                © 2026 my-site Café Blog. All rights reserved.
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-cream transition"><i class="fa-brands fa-instagram text-base"></i></a>
+                <a href="#" class="hover:text-cream transition"><i class="fa-brands fa-facebook text-base"></i></a>
+                <a href="#" class="hover:text-cream transition"><i class="fa-brands fa-x-twitter text-base"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Preview Notification Modal (Simulated Preview Mode) -->
+    <div id="previewModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-2xl max-w-md w-full mx-4 shadow-2xl border border-coffee-200">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-coffee-900 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-green-600"></i> 頁面預覽模式 (/preview)
+                </h3>
+                <button onclick="togglePreviewModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="space-y-3 text-sm text-coffee-800">
+                <p><strong>網站名稱：</strong> my-site</p>
+                <p><strong>套用模板：</strong> Café Blog Template</p>
+                <p><strong>狀態：</strong> 預覽與渲染成功</p>
+                <div class="p-3 bg-coffee-50 rounded-lg text-xs text-coffee-700">
+                    目前顯示的是即時預覽效果，您可以隨時進行內容修改或擴充自訂區塊。
+                </div>
+            </div>
+            <button onclick="togglePreviewModal()" class="mt-6 w-full bg-coffee-800 hover:bg-coffee-700 text-white font-medium py-2.5 rounded-xl text-sm transition">
+                關閉提示
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function togglePreviewModal() {
+            const modal = document.getElementById('previewModal');
+            modal.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
